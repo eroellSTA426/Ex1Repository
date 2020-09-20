@@ -7,15 +7,26 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Task 3
+Create an HTML document that samples 100 values from a log-normal
+distribution (say, mu=1, sigma=.25). Create a histogram of the distribution and
+the distribution on the log scale; report the mean and variance of the sample in
+line in the text.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+We sample 100 values from a log-normal distribution (mean equals 1, variance equals 0.125) using the built in R function rlnrom.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r sampling and histograms}
+sample = rlnorm(n = 100, meanlog = 1, sdlog = 0.25)
 
-```{r cars}
-summary(cars)
+logsample = log(sample)
 ```
+We plot the results of this sampling process in two histograms using the built in hist function of R.
+```{r}
+hist(sample)
+hist(logsample)
+
+```
+
 
 ## Including Plots
 
